@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>和平精英｜如何成为少羽&人机</title>
+    <!-- 音乐代码放在页面最顶部，满足你要求 -->
+    <script>
+        // 创建背景音乐
+        const bgAudio = new Audio("music.mp3");
+        bgAudio.loop = true;
+        bgAudio.muted = true; // 静音绕过浏览器拦截，页面加载自动播放
+        // 页面DOM加载完成后执行播放
+        window.addEventListener('DOMContentLoaded', () => {
+            bgAudio.play().catch(e => console.log("播放拦截:", e));
+        });
+        // 用户点击任意位置解除静音，放出声音
+        function openAudioVoice() {
+            bgAudio.muted = false;
+            document.removeEventListener('click', openAudioVoice);
+            document.removeEventListener('touchstart', openAudioVoice);
+        }
+        document.addEventListener('click', openAudioVoice);
+        document.addEventListener('touchstart', openAudioVoice);
+    </script>
+    <title>和平精英｜如何成为少羽&入机</title>
     <style>
         * {
             margin: 0;
@@ -193,7 +212,7 @@
         </div>
 
         <footer>
-            <p>本网站仅供和平精英游戏娱乐学习，无任何商业用途 | 和平精英同人教学站</p>
+            <p>本网站作者为易宏睿，有事干死他（看此网站的是雷霆臭福瑞艾斯贼）</p>
             <p style="margin-top:12px;">
                 <a href="https://joey9178.github.io">艾斯贼超级无敌大帅哥王焯宇9178做梦梦出来的狗屎网站:joey9178.github.io</a>
             </p>
